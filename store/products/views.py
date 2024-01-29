@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 #Функции = контроллеры = вьюхи
 
 
-def index(request, category_id=None):
+def index(request):
     baskets = Basket.objects.all()
     total_quantity = 0
     for basket in baskets:

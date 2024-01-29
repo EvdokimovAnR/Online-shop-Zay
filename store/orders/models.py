@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import User
+from products.models import Basket
 from django.urls import reverse
 
 
@@ -29,3 +30,13 @@ class Order(models.Model):
 
     def get_absolute_url(self):
         return reverse('order-create', kwargs={'pk': self.pk})
+
+    def update_after_payment(self):
+        baskets = Basket.objects.filter(user=self.initiator)
+        self.statuses = self.PAID
+        self.basket_history = {
+            'purchased_items': [basket.de_json() for basket in baskets],
+            'total_sum': float(baskets.total_summa())
+        }
+        baskets.delete()
+        self.save()

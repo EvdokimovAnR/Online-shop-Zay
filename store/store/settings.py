@@ -9,24 +9,37 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import environ
 
 from pathlib import Path
+
+env = environ.Env(
+    DEBUG=(bool),
+    SECRET_KEY=(str),
+    DOMAIN_NAME=(str),
+    REDIS_HOST=(str),
+    REDIS_PORT=(str),
+    DATABASE_NAME=(str),
+    STRIPE_PUBLIC_KEY=(str),
+    STRIPE_SECRET_KEY=(str),
+    STRIPE_WEBHOOK_SECRET=(str)
+)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+environ.Env.read_env(BASE_DIR / '.env')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-m0+)t(%7#@lornih7mat=cmm)3$)a3rl0lol@_!7b8*&+elgp%'
-
+SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 DEBUG_PROPAGATE_EXCEPTIONS = True
 ALLOWED_HOSTS = ['testserver', '127.0.0.1']
+DOMAIN_NAME = env('DOMAIN_NAME')
 
 
 # Application definition
@@ -41,7 +54,8 @@ INSTALLED_APPS = [
     'products',
     'users',
     'orders',
-    'debug_toolbar'
+    'debug_toolbar',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -78,10 +92,15 @@ WSGI_APPLICATION = 'store.wsgi.application'
 
 INTERNAL_IPS = ['127.0.0.1']
 
+# Redis
+REDIS_HOST = env('REDIS_HOST')
+REDIS_PORT = env('REDIS_PORT')
+
+
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'LOCATION': f'redis://{REDIS_HOST}:{REDIS_PORT}/1',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
@@ -97,6 +116,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'HOST': '127.0.0.1',
+
     }
 }
 
@@ -150,7 +171,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
 # Stripe
-STRIPE_PUBLIC_KEY = 'pk_test_51OIujzLMnrYSg46p4ntIdQuZN5SRH24y3TP8Vlnz3NmBnepcTW0BKR5OPWSlz6G2A2eX2iBaEHIqhaWWsYCKpXq900DO2v0x35'
-STRIPE_SECRET_KEY = 'sk_test_51OIujzLMnrYSg46p2AH7hNsgLJYYLGWzEhytyrCYEnCkvLnCD7wgCtMQewFLaYkKou9VGLA7YOUKu6VcOHia6mlA00IXYzdXTk'
-DOMAIN_NAME = 'http://127.0.0.1:8000'
-STRIPE_WEBHOOK_SECRET = ' whsec_752361339180ba0550cf8a66f5429d97451ec4e430627825452fdf19836387db '
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
+STRIPE_WEBHOOK_SECRET = env('STRIPE_WEBHOOK_SECRET')
+
+# Celery
+CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}'
+CELERY_RESULT_BACKEND = f'redis://{REDIS_HOST}:{REDIS_PORT}'

@@ -12,7 +12,7 @@
   <body>
   <div class="container1">
       <div class="row justify-content-center">
-          <div class="error-container1">
+          <div class="error-container">
               <div class="col-lg-7">
               {% if messages or form.non_field_errors %}
               <div class="alert {% if messages %} alert-success {% else %} alert-warning {% endif %} alert-dismissible fade show" role="alert">
@@ -42,7 +42,7 @@
             <i class="fas fa-lock"></i>
             {{ form.password }}
           </div>
-          <div class="pass"><a href="#">Забыли пароль?</a></div>
+<!--          <div class="pass"><a href="#">Забыли пароль?</a></div>-->
           <div class="row button">
             <input type="submit" value="Войти">
           </div>
