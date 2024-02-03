@@ -10,13 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="CodeHim">
     <title>{{ title }}</title>
-
-    <!-- Style CSS -->
-
     <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
-	<!-- Demo CSS (No need to include it into your project) -->
-
-
       <link rel="stylesheett" href="{% static 'assets/css/demo.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/templatemo.css' %}">
@@ -88,7 +82,6 @@
                     {% endif %}
                 </div>
             </div>
-
         </div>
     </nav>
 {% if baskets %}
@@ -100,7 +93,6 @@
 				<header>
 					<a  href = "{% url 'basket_remove' basket.id %}">
 						<img src="{{ basket.product.image.url }}">
-
 						<h3 class ="text-center">Удалить товар</h3>
 					</a>
 				</header>
@@ -108,59 +100,37 @@
 					<h1>{{ basket.product.name }}</h1>
                     <b>Описание:</b> {{ basket.product.description }}
 				</div>
-
 				<footer class="content">
                     <a href="{% url 'remove_quantity_to_basket' basket.id %}"><span class="qt-minus">-</span></a>
 					<span class="qt">{{ basket.quantity }}</span>
-<!--					<span class="qt-plus">+</span>-->
                     <a href="{% url 'add_quantity_to_basket' basket.id %}"><span class="qt-plus">+</span></a>
-
 					<h2 class="full-price">
-
 					</h2>
-
 					<h2 class="price">
 						<h>{{ basket.summa }} руб.</h>
 					</h2>
 				</footer>
-
 			</article>
             {% endfor %}
-
-
 		</section>
-
 	</div>
-
 	<footer id="site-footer">
 		<div class="container clearfix">
-
 			<div class="left">
-
 			</div>
-
 			<div class="right ">
 				<h1 class="total ">Итоговая сумма: <span>{{ total_summa}} руб.</span></h1>
 				<a class="btn btn-success btn-lg"  href="{% url 'order_create'%}">Оформить заказ</a>
-
-
-
 			</div>
-
 		</div>
 	</footer>
-     <!-- END EDMO HTML (Happy Coding!)-->
      {% else %}
-     <div class="text-center">
-         <p>КОРЗИНА ПУСТА</p>
-     </div>
+    <div class="empty-cart-message text-center">
+    <p>КОРЗИНА ПУСТА</p>
+    </div>
      {% endif %}
-
  </main>
-
-
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script  src="{% static 'assets/js/script.js'%}"></script>
-
   </body>
 </html>

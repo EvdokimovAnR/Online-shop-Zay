@@ -10,12 +10,9 @@
                         <ul class="collapse show list-unstyled pl-3">
                             {% for category in categories %}
                                     <li><a class="text-decoration-none" style="color: black"  href="{% url 'category' category.id%}">{{ category.name }}</a></li>
-
                             {% endfor %}
                         </ul>
-
             </div>
-
             <div class="col-lg-9">
                 <div class="row">
                     <div class="col-md-6">
@@ -34,7 +31,6 @@
                                 <img class="card-img rounded-0 img-fluid" src="{{ product.image.url }} ">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-<!--                                        <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>-->
                                         <li><a class="btn btn-success text-white mt-2" href="{% url 'shop_single' product.id%}"><i class="far fa-eye"></i></a></li>
                                         <li><a class="btn btn-success text-white mt-2" href="{% url 'basket_add' product.id %}"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
@@ -43,7 +39,6 @@
                             <div class="card-body">
                                 <a href="shop-single.html" class="h3 text-decoration-none">{{ product.name }}</a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-<!--                                    <li>M/L/X/XL</li>-->
                                     <li class="pt-2">
                                         <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
                                         <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
@@ -74,11 +69,9 @@
                             <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="{% url 'paginator' page %}">{{ page }}</a>
                         </li>
                         {% endfor %}
-
                     </ul>
                 </div>
             </div>
-
         </div>
     </div>
 {% endblock%}
@@ -92,13 +85,9 @@
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
-                        <!--Carousel Wrapper-->
                         <div class="col">
                             <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="templatemo-slide-brand" data-bs-ride="carousel">
-                                <!--Slides-->
                                 <div class="carousel-inner product-links-wap" role="listbox">
-
-                                    <!--First slide-->
                                     <div>
                                         <div class="row">
                                             <div class="col-3 p-md-5">
@@ -118,7 +107,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!--End Carousel Wrapper-->
                     </div>
                 </div>
             </div>

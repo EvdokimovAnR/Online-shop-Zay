@@ -10,23 +10,18 @@
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/templatemo.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
-
-    <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
 </head>
 <body>
  <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
-
             <a class="navbar-brand text-success logo h1 align-self-center" href="{% url 'index'%}">
                 Zay
             </a>
-
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
@@ -75,7 +70,6 @@
                     {% endif %}
                 </div>
             </div>
-
         </div>
     </nav>
 <form action="{% url 'profile'%}" method="post" enctype="multipart/form-data">
@@ -108,7 +102,6 @@
                       <h6 class="mb-0 mt-2">Имя</h6>
                     </div>
                      <div class="col-sm-9">
-<!--                        <input type="text" class="form-control" id="first_name" value="">-->
                          {{ form.first_name}}
                      </div>
                   </div>
@@ -118,7 +111,6 @@
                       <h6 class="mb-0 mt-2">Фамилия</h6>
                     </div>
                     <div class="col-sm-9">
-<!--                        <input type="text" class="form-control" id="last_name" value="Евдокимов">-->
                         {{ form.last_name }}
                      </div>
                   </div>
@@ -128,7 +120,6 @@
                       <h6 class="mb-0 mt-2">Имя пользователя</h6>
                     </div>
                     <div class="col-sm-9">
-<!--                        <input type="text" class="form-control" id="username" value="anton">-->
                         {{ form.username}}
                      </div>
                   </div>
@@ -138,7 +129,6 @@
                       <h6 class="mb-0 mt-2">Адрес электронной почты</h6>
                     </div>
                     <div class="col-sm-9">
-<!--                        <input type="text" class="form-control" id="email" value="antonevdokimov47@gmail.com">-->
                         {{ form.email}}
                      </div>
                   </div>

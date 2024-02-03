@@ -55,7 +55,9 @@ INSTALLED_APPS = [
     'users',
     'orders',
     'debug_toolbar',
-    'django_extensions'
+    'django_extensions',
+    'rest_framework',
+    'api'
 ]
 
 MIDDLEWARE = [
@@ -178,3 +180,8 @@ STRIPE_WEBHOOK_SECRET = env('STRIPE_WEBHOOK_SECRET')
 # Celery
 CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}'
 CELERY_RESULT_BACKEND = f'redis://{REDIS_HOST}:{REDIS_PORT}'
+# Django REST framework
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 9
+}

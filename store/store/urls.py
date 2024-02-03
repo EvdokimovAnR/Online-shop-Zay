@@ -22,6 +22,7 @@ from products.views import index, shop, about, contact, shop_single, basket, bas
 from users.views import registration, login, profile, logout
 from orders.views import OrderCreateView, CancelTemplateView, SuccessTemplateView, stripe_webhook_view
 from django.views.decorators.cache import cache_page
+from api.views import ProductListAPIView, BasketModelViewSet
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
@@ -44,6 +45,9 @@ urlpatterns = [
     path('baskets/remove/<int:basket_id>/', basket_remove, name='basket_remove'),
     path('add_quantity_to_basket/<int:basket_id>/', add_quantity_to_basket, name='add_quantity_to_basket'),
     path('remove_quantity_to_basket/<int:basket_id>/', remove_quantity_to_basket, name='remove_quantity_to_basket'),
+    path('product-list/', ProductListAPIView.as_view(), name='product_list'),
+    path('basket-list/', BasketModelViewSet.as_view({'get': 'list'}), name='basket_list')
+
 
 
 ]
