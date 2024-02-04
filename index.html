@@ -1,0 +1,183 @@
+{% extends 'products/base.html' %}
+
+{% load static %}
+
+{% block banner %}
+ <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="{% static 'assets/img/banner_img_01.jpg' %}" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>Добро пожаловать в наш магазин одежды и обуви!</b></h1>
+                                <p>
+                                Мы предлагаем широкий выбор стильной и качественной одежды и обуви для мужчин и женщин. Наша команда постоянно следит за последними тенденциями моды, чтобы предложить вам самые актуальные и модные коллекции.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="{% static 'assets/img/banner_img_02.jpg'%}" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <p>
+                                    В нашем интернет-магазине вы найдете все, что вам нужно для создания идеального образа: от повседневной одежды и спортивной обуви до элегантных вечерних нарядов и стильных аксессуаров. Мы предлагаем только высококачественные товары, выбранные с учетом последних тенденций моды.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="{% static 'assets/img/banner_img_03.jpg' %}" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <p>
+                                    Наша команда профессиональных стилистов и модных экспертов следит за всеми новинками модного мира, чтобы предложить вам только самые актуальные и стильные вещи. Мы также обеспечиваем удобные условия заказа и доставки, чтобы сделать ваше шопинг-путешествие максимально приятным и комфортным.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block categories %}
+<section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1"><b>Категории месяца</b></h1>
+                <p>
+                    Мы представляем вам актуальные катерии товаров за данный месяц
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a><img src="{% static 'assets/img/сумкааа (1).jpg' %}" class="rounded-circle img-fluid border"></a>
+                <h5 class="text-center mt-3 mb-3">Сумки</h5>
+                <a href="{% url 'category' category_id=5 %}" class="text-center d-block"><button class="btn btn-success">Купить</button></a>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="{% static 'assets/img/спорт коостюм (1).jpg' %}" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Спортивная одежда</h2>
+                <a href="{% url 'category' category_id=3 %}" class="text-center d-block"><button class="btn btn-success">Купить</button></a>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="{% static 'assets/img/category_img_03.jpg' %}" class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Солнцезащитные очки</h2>
+                <a href="{% url 'category' category_id=7 %}" class="text-center d-block"><button class="btn btn-success">Купить</button></a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block product %}
+<section class="bg-light">
+        <div class="container py-5">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1"><b>Рекомендуемые продукты</b></h1>
+                    <p>
+                        Мы тщательно отбираем эти товары, чтобы убедиться, что они соответствуют потребностям и ожиданиям наших клиентов.
+                        Мы уверены, что наши клиенты найдут в нашем списке рекомендуемых товаров что-то, что им понравится и будет соответствовать их ожиданиям.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="{% url 'shop_single' product_id=4 %}">
+                            <img src="{% static 'assets/img/пальтоо.jpg' %}" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">2499,00 руб.</li>
+                            </ul>
+                            <a href="{% url 'shop_single' product_id=4 %}" class="h2 text-decoration-none text-dark">Paetki / Трикотажное пальто-кардиган</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="{% url 'shop_single' product_id=5 %}">
+                            <img src="{% static 'assets/img/жилетка м норм (1).jpg' %}" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">2799,00 руб.</li>
+                            </ul>
+                            <a href="{% url 'shop_single' product_id=5 %}" class="h2 text-decoration-none text-dark">SKEIN / Модная жилетка для мужчин </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100">
+                        <a href="{% url 'shop_single' product_id=7 %}">
+                            <img src="{% static 'assets/img/пальто мужское норм (1).jpg' %}" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right">8990,00 руб.</li>
+                            </ul>
+                            <a  href="{% url 'shop_single' product_id=7 %}" class="h2 text-decoration-none text-dark">
+                               Пальто от российского бренда "ГрандСтайл"
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock%}
+
+
+
