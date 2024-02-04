@@ -8,6 +8,7 @@
 * Django  4.2.4
 * Django REST framework 3.14.0
 * django-debug-toolbar
+* SQLite3
 * HTML
 * CSS
 ## Использование:
@@ -22,7 +23,22 @@ https://github.com/EvdokimovAnR/Online-shop-Zay/assets/145903848/5d0e3efd-8041-4
 ## Установка:
 1. Клонируйте репозиторий
 ```
-https://github.com/dagedarr/StoreProject.git
+https://github.com/EvdokimovAnR/Online-shop-Zay.git
 
-cd OnlineStore
+cd Online-shop-Zay
 ```
+Если вы не используете Git, вы можете просто скачать репозиторий исходного кода в ZIP-архив и распаковать его на свой компьютер.
+2. Cоздайте виртуальное окружение и активируйте его
+* Для Mac и Linux: ``` python3 -m venv venv  ```
+* Для Windows: ```python -m venv venv ```
+3. Установите  зависимости
+```
+pip install -r requirements.txt
+```
+4. Создать в корне проекта .env
+```
+
+```
+
+source venv/bin/activate
+
