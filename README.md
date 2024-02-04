@@ -21,24 +21,40 @@
 https://github.com/EvdokimovAnR/Online-shop-Zay/assets/145903848/5d0e3efd-8041-40ba-968f-9122fd84b993
 
 ## Установка:
-1. Клонируйте репозиторий
+1. Клонируйте репозиторий:
 ```
 https://github.com/EvdokimovAnR/Online-shop-Zay.git
 
 cd Online-shop-Zay
 ```
 Если вы не используете Git, вы можете просто скачать репозиторий исходного кода в ZIP-архив и распаковать его на свой компьютер.
-2. Cоздайте виртуальное окружение и активируйте его
+
+2. Cоздайте виртуальное окружение:
 * Для Mac и Linux: ``` python3 -m venv venv  ```
 * Для Windows: ```python -m venv venv ```
-3. Установите  зависимости
+  
+3. Активируйте виртуальную среду:
+* Для Mac и Linux: ``` source venv/bin/activate ```
+* Для Windows: ```venv/bin/activate```
+4. Установите  зависимости:
 ```
 pip install -r requirements.txt
 ```
-4. Создать в корне проекта .env
+5. Создать в корне проекта .env и заполнить его по аналогии с файлом .env
+6. Настройте и заполните базу данных:
 ```
-
+python manage.py makemigrations
+python manage.py migrate
+python manage.py loaddata categories.json
+python manage.py loaddata products.json
+python manage.py loaddata productinfo.json
+python manage.py loaddata users.json
 ```
+7. Запустите сервер:
+```
+python manage.py runserver
+```
+Откройте браузер и перейдите по адресу http://127.0.0.1:8000
 
-source venv/bin/activate
+
 
