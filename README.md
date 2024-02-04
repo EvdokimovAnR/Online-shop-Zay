@@ -20,3 +20,9 @@
 https://github.com/EvdokimovAnR/Online-shop-Zay/assets/145903848/5d0e3efd-8041-40ba-968f-9122fd84b993
 
 ## Установка:
+1. Клонируйте репозиторий
+```
+https://github.com/dagedarr/StoreProject.git
+
+cd OnlineStore
+```
